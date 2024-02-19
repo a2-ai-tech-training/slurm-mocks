@@ -1,4 +1,4 @@
-module github.com/a2-ai-tech-training/build-go-bin
+module github.com/a2-ai-tech-training/slurm-mocks
 
 go 1.21
 
