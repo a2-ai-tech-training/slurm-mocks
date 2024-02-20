@@ -14,4 +14,5 @@ func TestRead(t *testing.T) {
 	assert.Nil(t, err)
 	assert.Equal(t, []byte("hello from stdout!\n"), res.Stdout)
 	assert.Equal(t, []byte("hello from stderr!\n"), res.Stderr)
+	assert.Equal(t, 0, res.ExitCode)
 }
