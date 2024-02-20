@@ -2,6 +2,7 @@ package reader
 
 import (
 	"encoding/json"
+	"errors"
 	"os"
 	"path/filepath"
 )
@@ -22,11 +23,17 @@ type ScenarioMetadata struct {
 func GetScenarioOutput(path string) (ScenarioOutput, error) {
 	stdout, err := os.ReadFile(filepath.Join(path, "stdout.txt"))
 	if err != nil {
-		return ScenarioOutput{}, err
+		// we are ok if stdout is not present and would just expect to print nothing
+		if !errors.Is(err, os.ErrNotExist) {
+			return ScenarioOutput{}, err
+		}
 	}
 	stderr, err := os.ReadFile(filepath.Join(path, "stderr.txt"))
 	if err != nil {
-		return ScenarioOutput{}, err
+		// we are ok if stderr is not present and would just expect to print nothing
+		if !errors.Is(err, os.ErrNotExist) {
+			return ScenarioOutput{}, err
+		}
 	}
 	metadata, err := os.ReadFile(filepath.Join(path, "metadata.json"))
 	if err != nil {
