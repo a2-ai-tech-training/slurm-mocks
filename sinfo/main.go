@@ -2,13 +2,13 @@
 package main
 
 import (
-	"bufio"
 	"embed"
 	"fmt"
 	"log"
 	"os"
 
 	"github.com/a2-ai-tech-training/slurm-mocks/internal/hasher"
+	"github.com/a2-ai-tech-training/slurm-mocks/internal/reader"
 )
 
 //go:embed outputs/*
@@ -19,27 +19,20 @@ func main() {
 	arguments := os.Args[1:]
 	hash := hasher.Hasher(arguments)
 
-	hash_path := fmt.Sprintf("outputs/%s.txt", hash)
+	scenario := os.Getenv("SCENARIO")
+	if scenario == "" {
+		scenario = "default"
+	}
 
-	file, err := f.Open(hash_path)
+	hash_path := fmt.Sprintf("outputs/%s/%s/", scenario, hash)
+
+	file, err := reader.GetScenarioOutput(hash_path)
 
 	if err != nil {
 		log.Fatal(err)
 	}
 
-	defer file.Close()
-
-	scanner := bufio.NewScanner(file)
-
-	// Skips first line that contains command
-	scanner.Scan()
-
-	for scanner.Scan() {
-		fmt.Println(scanner.Text())
-	}
-
-	if err := scanner.Err(); err != nil {
-		log.Fatal(err)
-	}
-
+	fmt.Printf("Stderr:\n%s\n", file.Stderr)
+	fmt.Printf("Stdout:\n%s\n", file.Stdout)
+	fmt.Printf("Exit Code:\n%d\n", file.ExitCode)
 }
