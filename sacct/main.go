@@ -48,7 +48,7 @@ func main() {
 			fmt.Printf("%s\n%s exited with code %s\n", file.Stderr, "Command", file.ExitCode)
 		}
 	*/
-	fmt.Fprintf(os.Stdout, "%s", file.Stdout)
-	fmt.Fprintf(os.Stderr, "%s", file.Stderr)
+	fmt.Fprintf(os.Stdout, "%s\n", file.Stdout)
+	fmt.Fprintf(os.Stderr, "%s\n", file.Stderr)
 	os.Exit(file.ExitCode)
 }

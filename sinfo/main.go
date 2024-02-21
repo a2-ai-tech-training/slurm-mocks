@@ -35,7 +35,7 @@ func main() {
 		fmt.Printf("Stderr:\n%s\n", file.Stderr)
 		fmt.Printf("Stdout:\n%s\n", file.Stdout)
 		fmt.Printf("Exit Code:\n%d\n", file.ExitCode)*/
-	fmt.Fprintf(os.Stdout, "%s", file.Stdout)
-	fmt.Fprintf(os.Stderr, "%s", file.Stderr)
+	fmt.Fprintf(os.Stdout, "%s\n", file.Stdout)
+	fmt.Fprintf(os.Stderr, "%s\n", file.Stderr)
 	os.Exit(file.ExitCode)
 }
