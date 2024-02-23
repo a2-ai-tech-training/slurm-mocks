@@ -11,7 +11,7 @@ import (
 	"github.com/a2-ai-tech-training/slurm-mocks/internal/reader"
 )
 
-//go:embed outputs/*
+//go:embed outputs/**/*
 var f embed.FS
 
 func main() {
@@ -48,7 +48,7 @@ func main() {
 			fmt.Printf("%s\n%s exited with code %s\n", file.Stderr, "Command", file.ExitCode)
 		}
 	*/
-	fmt.Fprintf(os.Stdout, "%s\n", file.Stdout)
-	fmt.Fprintf(os.Stderr, "%s\n", file.Stderr)
+	fmt.Fprintf(os.Stdout, "%s", file.Stdout)
+	fmt.Fprintf(os.Stderr, "%s", file.Stderr)
 	os.Exit(file.ExitCode)
 }
