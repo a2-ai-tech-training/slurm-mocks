@@ -1,4 +1,0 @@
-{
-    "command": "sinfo --json",
-    "exit_code": 0
-}
