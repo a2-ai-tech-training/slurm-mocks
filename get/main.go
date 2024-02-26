@@ -3,8 +3,9 @@ package main
 import (
 	"flag"
 	"fmt"
+	"github.com/spf13/cobra"
 	"os"
-	//"github.com/spf13/cobra"
+	//"os/exec"
 )
 
 /*
@@ -18,6 +19,16 @@ import (
 	"strings"*/
 
 func main() {
+
+	var getCmd = &cobra.Command{
+		Use:   "version",
+		Short: "Return version to stdout",
+		Run: func(cmd *cobra.Command, args []string) {
+			fmt.Println("Get 0.0.002602202401")
+		},
+	}
+
+	getCmd.Execute()
 	args := os.Args
 	var a string
 	var s string
