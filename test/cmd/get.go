@@ -27,11 +27,17 @@ func cmd(cmd *cobra.Command, args []string) {
 	output, _ := cmd.Flags().GetString("output")
 	fmt.Println("get called")
 
-	if scenario == "default" {
-		fmt.Println("scenario is default")
+	if scenario != "" {
+		fmt.Println("scenario is", scenario)
 	}
 
-	if output == "outputs" {
-		fmt.Println("output is outputs")
+	if output != "" {
+		fmt.Println("output is", output)
+	}
+
+	if len(args) > 0 {
+		fmt.Println("args are", args)
+	} else {
+		fmt.Println("no args")
 	}
 }
