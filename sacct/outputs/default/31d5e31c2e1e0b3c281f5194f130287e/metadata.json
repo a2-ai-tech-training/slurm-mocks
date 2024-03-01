@@ -1,0 +1,4 @@
+{
+    "command": "sacct --json",
+    "exit_code": 0
+}
