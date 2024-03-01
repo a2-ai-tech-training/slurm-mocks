@@ -2,6 +2,7 @@ package cmd
 
 import (
 	"fmt"
+	"os"
 
 	"github.com/spf13/cobra"
 )
@@ -23,16 +24,31 @@ func init() {
 
 func cmd(cmd *cobra.Command, args []string) {
 	// TODO: Work your own magic here
+
+	fmt.Println("OS scenario :", os.Getenv("SCENARIO"))
+	fmt.Println("OS output   :", os.Getenv("OUTPUT_DIR"))
+
 	scenario, _ := cmd.Flags().GetString("scenario")
 	output, _ := cmd.Flags().GetString("output")
-	fmt.Println("get called")
-
+	//fmt.Println("get called")
 	if scenario != "" {
-		fmt.Println("scenario is", scenario)
+		fmt.Println("Flag scenario is", scenario)
+	}
+	if os.Getenv("SCENARIO") != "" {
+		if scenario == "default" {
+			scenario = os.Getenv("SCENARIO")
+			fmt.Println("Scenario is:", scenario)
+		}
 	}
 
 	if output != "" {
-		fmt.Println("output is", output)
+		fmt.Println("Flag output dir is", output)
+	}
+	if os.Getenv("OUTPUT_DIR") != "" {
+		if output == "outputs" {
+			output = os.Getenv("OUTPUT_DIR")
+			fmt.Println("Output Directory:", output)
+		}
 	}
 
 	if len(args) > 0 {
