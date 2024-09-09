@@ -1,4 +1,4 @@
-// https://slurm.schedmd.com/sinfo.html
+// https://slurm.schedmd.com/squeue.html
 package main
 
 import (
@@ -15,7 +15,6 @@ import (
 var f embed.FS
 
 func main() {
-
 	arguments := os.Args[1:]
 	hash := hasher.Hasher(arguments)
 

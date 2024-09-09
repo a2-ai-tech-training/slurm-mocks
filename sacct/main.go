@@ -5,9 +5,10 @@ import (
 	"bufio"
 	"embed"
 	"fmt"
-	"github.com/a2-ai-tech-training/build-go-bin/internal/hasher"
 	"log"
 	"os"
+
+	"github.com/a2-ai-tech-training/slurm-mocks/internal/hasher"
 )
 
 //go:embed outputs/*

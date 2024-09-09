@@ -1,0 +1,11 @@
+sinfo --format %P,%c,%m
+PARTITION,CPUS,MEMORY
+cpu2mem4gb*,2,3891
+cpu4mem32gb,4,31129
+cpu8mem64gb,8,62259
+cpu2mem8gb,2,7782
+cpu4mem16gb,4,15564
+cpu16mem128gb,16,124518
+cpu8mem32gb,8,31129
+cpu16mem64gb,16,62259
+cpu32mem128gb,32,124518

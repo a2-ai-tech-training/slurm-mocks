@@ -1,0 +1,47 @@
+squeue --json
+{
+    "jobs": [],
+    "last_backfill": {
+        "set": true,
+        "infinite": false,
+        "number": 1725653148
+        },
+    "last_update": {    
+        "set": true,
+        "infinite": false,
+        "number": 1725897611  
+        },
+    "meta": {
+        "plugin": {
+            "type": "",
+            "name": "",
+            "data_parser": "data_parser/v0.0.40",
+            "accounting_storage": "accounting_storage/slurmdbd"
+            },
+        "client": {
+            "source": "",
+            "user": "matthews",
+            "group": "datascience"   
+            },
+        "command": [
+            "squeue"
+        ],
+        "slurm": {
+            "version": {
+                "major": "23",
+                "micro": "7",
+                "minor": "11"
+                },
+            "release": "23.11.7",
+            "cluster": "a2aiclustermattsmith"
+            }
+        },
+    "errors": [
+    ],
+    "warnings": [
+        {
+            "description": "Zero jobs to dump",
+            "source": ""
+        }
+    ]
+}
