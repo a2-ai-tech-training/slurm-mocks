@@ -5,9 +5,10 @@ import (
 	"bufio"
 	"embed"
 	"fmt"
-	"github.com/a2-ai-tech-training/build-go-bin/internal/hasher"
 	"log"
 	"os"
+
+	"github.com/a2-ai-tech-training/slurm-mocks/internal/hasher"
 )
 
 //go:embed outputs/*
@@ -17,6 +18,7 @@ func main() {
 
 	arguments := os.Args[1:]
 	hash := hasher.Hasher(arguments)
+	fmt.Println(hash)
 
 	hash_path := fmt.Sprintf("outputs/%s.txt", hash)
 
