@@ -2,7 +2,8 @@ name: goreleaser
 
 on:
   push:
-    tags: ["sacct/v*", "sinfo/v*"]
+    tags: ["sacct/v*", "sinfo/v*", "squeue/v*"]
+  workflow_dispatch:
 
 permissions:
   contents: write
