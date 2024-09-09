@@ -18,7 +18,6 @@ func main() {
 
 	arguments := os.Args[1:]
 	hash := hasher.Hasher(arguments)
-	fmt.Println(hash)
 
 	hash_path := fmt.Sprintf("outputs/%s.txt", hash)
 
